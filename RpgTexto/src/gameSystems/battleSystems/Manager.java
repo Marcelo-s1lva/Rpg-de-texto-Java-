@@ -10,17 +10,17 @@ public class Manager {
     //Carrega a ulti do time
     protected static void chargeUlti(Character[] team){
         for (int i = 0; i < team.length; i++){
-            if (team[i] != null && !team[i].isNull()){
-                team[i].ultiTimeNear(); //Carrega a ulti de um personagem
+            if (team[i] != null && !team[i].isNull() && !team[i].isDead()){
+                team[i].ultiTimeNear(); //Carrega a ulti de um personagem caso não esteja vazio e esteja vivo.
             }
         }
     }
 
 
-
+    //Os parãmetros definem, respectivamente, quem atacará, quem será atacado e se o turno é de um bot
     protected static void selectAction(Character[] player, Character[] enemy, boolean botTurn){
-        boolean next = false; //to go to next turn
-        int choice;
+        boolean next = false; //para ir ao próximo turno
+        int choice; //representa escolha de ação(Pode ser: atacar persoangem ou selecionar poções(Sistema ainda inexistente))
         Scanner insert = new Scanner(System.in);
         Random rand = new Random();
 
@@ -30,6 +30,7 @@ public class Manager {
 
             while (!next){
 
+                //Caso o turno seja de um jogador, a variável de escolha será definida pelo Scanner
                 if (!botTurn){
                     System.out.println("Select some action");
                     System.out.println("(1) Use character Action");
@@ -39,7 +40,9 @@ public class Manager {
                else {
                    choice = rand.nextInt(1, 2);
                 }
+                //Se for de um bot, a variável será definida pelo Random
 
+                //Ação de atacar um personagem
                 if (choice ==1){
                     if(!botTurn) {
                         System.out.println("Select an character");
@@ -101,6 +104,7 @@ public class Manager {
 
     }
 
+    //Os parâmetros definem, respectivamente, quem atacará e quem será atacado.
     private static void attack(int character, int target, Character[] team, Character[] targetTeam){
         if (team[character].canUseUlti()){
             team[character].ultiAttack(targetTeam[target]);
