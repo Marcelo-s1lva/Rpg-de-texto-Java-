@@ -3,6 +3,7 @@ package gameSystems.inventorySystem;
 import java.util.Arrays;
 import java.util.List;
 
+//Adciona um itém caso ele siga a regra de um inventário
 public class RestrictedInventory {
     private Inventory inventory;
     private List<String> allowedTags;
