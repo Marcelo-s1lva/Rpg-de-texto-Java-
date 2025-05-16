@@ -14,6 +14,8 @@ public class Copy {
         classId = id;
     }
 
+    //Ao criar um novo personagem, deve-se sempre alterar o switch/case desse método
+    //Método que copia a classe de um personagem
     public Character copyClass(){
 
         switch (this.classId){
@@ -33,7 +35,7 @@ public class Copy {
 
     }
 
-
+    //Copia os atributos de um objeto
     public Character copyObject(Character character){
         Character copy;
         copy = copyClass();
