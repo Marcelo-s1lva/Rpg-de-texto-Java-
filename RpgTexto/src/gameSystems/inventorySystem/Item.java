@@ -4,12 +4,14 @@ import gameSystems.inventorySystem.items.*;
 
 import java.util.ArrayList;
 
+
+//Sistema de um item
 public abstract class Item {
-    private int iD;
-    private int currentStack = 1;
-    private int maxStackSize = 64;
-    protected ArrayList<String> tags = new ArrayList<>();
-    private String itemName;
+    private int iD; //Id do item
+    private int currentStack = 1; //Stack mínimo
+    private int maxStackSize = 64; //Stack máximo
+    protected ArrayList<String> tags = new ArrayList<>(); //tags
+    private String itemName; //nome do item
 
     public void setName(String name){
         itemName = name;
@@ -19,10 +21,12 @@ public abstract class Item {
         return itemName;
     }
 
+    //adiciona uma tag ao item
     public void addTag(String tagToAdd){
         tags.add(tagToAdd);
     }
 
+    //verifica se o item possui uma tag específica
     public boolean hasTag(String tag){
         if (tags.isEmpty()){
             return false;
@@ -37,6 +41,7 @@ public abstract class Item {
         return false;
     }
 
+    //copia a classe
     public Item copyClass(){
         Item copy;
         switch (iD){
@@ -51,7 +56,8 @@ public abstract class Item {
         }
         return copy;
     }
-
+    
+    //copia o item
     public Item copyItem(){
         Item copy = copyClass();
         copy.setCurrentStack(this.getCurrentStack());
@@ -79,6 +85,7 @@ public abstract class Item {
         this.currentStack = stack;
     }
 
+    //verifica se está vazio
     public boolean isEmpty(){
         if (this.currentStack == 0 || this.iD == 0){
             return true;
