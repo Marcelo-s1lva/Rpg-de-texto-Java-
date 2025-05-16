@@ -33,8 +33,9 @@ public class Main {
         Util.BattleLoop(Gameplay.battles.main_01); //Verifica se o jagador perdeu a batalha, e colocá a batalha em loop até que o jogador vença
         System.out.println("You Win");  //Caso o jogador vença a batalha
 
-
-        //Em breve: Jogo completo, com mais personagens, localizações, missões. etc
+        //Obs: isso é apenas uma demo. Meu intuito com esse projeto é tentar criar um jogo, no qual os sistemas são reutilizáveis para diversas ocasiões
+        //Em breve: Lançamento de arquivo .Zip do jogo completo, com mais personagens, localizações, missões. etc
+        //O arquivo será lançado aqui no GitHub
     }
 }
 
