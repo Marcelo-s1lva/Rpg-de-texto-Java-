@@ -1,5 +1,6 @@
 package gameSystems.characterSystem;
 
+//Define um personagem vazio
 public class EmptyChar extends Character{
     public EmptyChar(){
         setName("Null");
