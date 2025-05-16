@@ -5,15 +5,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public abstract class Dialogue {
-    protected List<String> textBlocks;
-    protected String endMessage;
+    protected List<String> textBlocks; //Caixas de texto
+    protected String endMessage; //Mensagem final
 
     private Scanner insert = new Scanner(System.in);
 
+    
     public Dialogue(){
         this.textBlocks = new ArrayList<>();
     }
 
+    //Executa o dialogo
     public void runDialogue(){
         for (int block = 0; block < textBlocks.size(); block ++){
 
