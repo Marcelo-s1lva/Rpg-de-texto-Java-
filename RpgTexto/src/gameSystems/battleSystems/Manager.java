@@ -5,12 +5,13 @@ import java.util.Scanner;
 import java.util.Random;
 
 
-
+//Gerencia ações em um turno
 public class Manager {
+    //Carrega a ulti do time
     protected static void chargeUlti(Character[] team){
         for (int i = 0; i < team.length; i++){
             if (team[i] != null && !team[i].isNull()){
-                team[i].ultiTimeNear();
+                team[i].ultiTimeNear(); //Carrega a ulti de um personagem
             }
         }
     }
