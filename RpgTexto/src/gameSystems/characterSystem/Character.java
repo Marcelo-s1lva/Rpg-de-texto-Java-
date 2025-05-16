@@ -6,14 +6,14 @@ import gameSystems.characterSystem.characteristics.*;
 public abstract class Character {
 
 
+    //Adciona as características do personagem
+    private Health hp = new Health(); //Vida
+    private Attack atk = new Attack(); //Ataque
+    private Copy cp = new Copy(); // Copia
 
-    private Health hp = new Health();
-    private Attack atk = new Attack();
-    private Copy cp = new Copy();
+    private String name; //nome do personagem
 
-
-    private String name;
-
+    //Verifica se está vazio
     public boolean isNull(){
         if(this.getId() == 0){
             return true;
@@ -23,19 +23,22 @@ public abstract class Character {
         }
     }
 
+    //Pega o id da classe
     public int getId(){
         return cp.getClassId();
     }
 
-    //this function will be called at the end of the team's turn
+   //Carrega a ulti, e será chamada ao final de um turno
     public void ultiTimeNear(){
        atk.ultiTimeNear();
     }
 
+    //verifica se pode usar uma ulti
     public boolean canUseUlti(){
         return atk.canUseUlti();
     }
 
+    //Verifica se o personagem está morto
     public boolean isDead(){
         if (getCurrentHealth() <= 0){
             return true;
@@ -45,22 +48,24 @@ public abstract class Character {
         }
     }
 
+    //Tomae dano
     public void takeDamage(double damage){
         hp.takeDamage(damage);
     }
 
+    //Cura o peronagem
     public void heal(double healValue){
         hp.heal(healValue);
     }
 
 
 
-
-    //Attack functions
+    //Ataca um outo personagem
     public void attack(Character target){
         atk.attack(target);
     }
 
+    //Ataque de Ulti
     public void ultiAttack(Character target){
         atk.ultiAttack(target);
     }
@@ -158,11 +163,12 @@ public abstract class Character {
         cp.setClassId(id);
     }
 
+    //Copia a classe de um personagem
     public Character copyClass(){
         return cp.copyClass();
     }
 
-
+    //Copia um objeto como um todo
     public Character copyObject(){
         return cp.copyObject(this);
     }
