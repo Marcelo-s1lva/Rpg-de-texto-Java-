@@ -1,7 +1,7 @@
 package gameSystems.inventorySystem;
 
 
-//static functions represents interactions between two inventories
+//funções estáticas representam interação entre dois inventários
 public class Inventory {
     private Item[] inventory;
 
@@ -13,7 +13,7 @@ public class Inventory {
         }
     }
 
-    //int parameter must receive an inventory Slot as parameter
+    //os parâmetros representam, respectivamente, o item que será colocado, e aonde será colocado
     public void setOnSlot(int slotToSet, int slot){
         if (isOnLength(slot) && isOnLength(slotToSet) && !inventory[slotToSet].isEmpty()){
             if (inventory[slot].isEmpty()){
@@ -29,7 +29,7 @@ public class Inventory {
         }
     }
 
-    //Item parameter must receive an inventory Slot as parameter
+    //Mesma coisa, mas entre inventários diferentes
     public static void setOnSlot(Inventory inventory1 ,int slotToSet, Inventory inventory2, int slot){
         if (inventory1.isOnLength(slotToSet) && inventory2.isOnLength(slot)){
             if (inventory2.inventory[slot].isEmpty()){
@@ -45,6 +45,7 @@ public class Inventory {
         }
     }
 
+    //Aqui, é possível definir uma quantidade para colocar o item
     public void setOnSlot(int slotToSet, int slot, int stackAmount){
         if (stackAmount <= inventory[slotToSet].getCurrentStack() && stackAmount > 0 && isOnLength(slot) && isOnLength(slotToSet)){
             if(inventory[slot].getiD() == inventory[slotToSet].getiD() || inventory[slot].isEmpty()){
@@ -148,6 +149,7 @@ public class Inventory {
     }
 
 
+    //Pega o item de um slot
     public Item getItemBySlot(int slot){
         if (isOnLength(slot) && !inventory[slot].isEmpty()){
             Item itemGot = inventory[slot].copyItem();
@@ -160,8 +162,7 @@ public class Inventory {
 
 
 
-    //this will add an Item in a free slot
-    //Recommendation: add only new instances in Item parameter
+    //adciona um item em um espaço livre
     public void addItem(Item itemToAdd){
         boolean foundFreeSlot = false;
         for (int i = 0; i < inventory.length; i++){
@@ -181,7 +182,7 @@ public class Inventory {
         }
     }
 
-    //Add Item with stack amount
+    //Adciona um item com uma quantidade
     public void addItem(Item itemToAdd, int amount){
         boolean foundFreeSlot = false;
         int amountToAdd = amount;
