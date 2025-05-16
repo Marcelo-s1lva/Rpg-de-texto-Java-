@@ -3,7 +3,7 @@ package gameplay;
 import gameSystems.battleSystems.Battle;
 
 import java.util.Scanner;
-
+//Classe que adiciona algumas utilidades, as quais podem ser expandidas em versões futuras
 public class Util {
     public static void BattleLoop(Battle battle){
         if(battle.getWinner() == 1){
